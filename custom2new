@@ -1,0 +1,27 @@
+int channel1, channel2, channel3, channel4;
+
+void setup() {
+  // Αρχικοποίηση της σύνδεσης Serial για την αποστολή δεδομένων στον υπολογιστή
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Διάβασμα των τιμών των καναλιών από τον δέκτη
+  channel1 = pulseIn(2, HIGH);  // Διάβασμα του καναλιού 1 από την ψηφιακή είσοδο 2
+  channel2 = pulseIn(3, HIGH);  // Διάβασμα του καναλιού 2 από την ψηφιακή είσοδο 3
+  channel3 = pulseIn(4, HIGH);  // Διάβασμα του καναλιού 3 από την ψηφιακή είσοδο 4
+  channel4 = pulseIn(5, HIGH);  // Διάβασμα του καναλιού 4 από την ψηφιακή είσοδο 5
+  
+  // Εκτύπωση των τιμών των καναλιών
+  Serial.print("Channel 1: ");
+  Serial.println(channel1);
+  Serial.print("Channel 2: ");
+  Serial.println(channel2);
+  Serial.print("Channel 3: ");
+  Serial.println(channel3);
+  Serial.print("Channel 4: ");
+  Serial.println(channel4);
+  
+  // Καθυστέρηση για να μην γίνει πολύ γρήγορα το loop
+  delay(1000);
+}
